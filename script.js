@@ -18,38 +18,3 @@ save.addEventListener("click", (e) => {
     colour.value
   );
 });
-
-function getCookie(name) {
-  const cookies = document.cookie.split(";");
-
-  for (let cookie of cookies) {
-    cookie = cookie.trim();
-
-    if (cookie.startsWith(name + "=")) {
-      return cookie.substring(name.length + 1);
-    }
-  }
-
-  return null;
-}
-
-window.addEventListener("load", () => {
-  const savedSize = getCookie("fontsize");
-  const savedColor = getCookie("fontcolor");
-
-  if (savedSize) {
-    document.documentElement.style.setProperty(
-      "--fontsize",
-      `${savedSize}px`
-    );
-    size.value = savedSize;
-  }
-
-  if (savedColor) {
-    document.documentElement.style.setProperty(
-      "--fontcolor",
-      savedColor
-    );
-    colour.value = savedColor;
-  }
-});
